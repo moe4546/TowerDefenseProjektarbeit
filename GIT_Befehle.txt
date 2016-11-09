@@ -1,7 +1,0 @@
-Update: git pull
-
-push: 
-git add "Dateiname" // oder git add *
-git commit -m "Nachricht"
-git push "Branch z.B. Origin Master"
-GNNNRRRR
