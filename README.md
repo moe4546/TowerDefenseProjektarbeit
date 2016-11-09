@@ -1,2 +1,2 @@
 # TowerDefenseProjektarbeit
-A Towerdefense game for PC Standalone and connected with LeapMotion Controller
+A Towerdefense game for PC Standalone, connected with LeapMotion Controller
