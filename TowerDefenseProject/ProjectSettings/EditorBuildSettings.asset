@@ -10,6 +10,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/01a Start.unity
   - enabled: 1
+    path: Assets/_Scenes/Leap_Hands_Demo_Desktop 1.unity
+  - enabled: 1
     path: Assets/_Scenes/01a Options.unity
   - enabled: 1
     path: Assets/_Scenes/02 Level_01.unity
