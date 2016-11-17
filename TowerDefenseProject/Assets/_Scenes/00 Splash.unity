@@ -302,7 +302,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bcfff6fb01aac1f48aa13882ba531cee, type: 2}
-  m_RootGameObject: {fileID: 977205467}
   m_IsPrefabParent: 0
 --- !u!1 &596250155
 GameObject:
@@ -366,50 +365,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!1 &977205467
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1000013003032976, guid: bcfff6fb01aac1f48aa13882ba531cee,
-    type: 2}
-  m_PrefabInternal: {fileID: 436328246}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 977205469}
-  - 114: {fileID: 977205468}
-  m_Layer: 0
-  m_Name: Levelmanager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &977205468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000014132629430, guid: bcfff6fb01aac1f48aa13882ba531cee,
-    type: 2}
-  m_PrefabInternal: {fileID: 436328246}
-  m_GameObject: {fileID: 977205467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc47fc981d1c484c90509e721b86696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoLoadNextLevelAfter: 3
---- !u!4 &977205469
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4000013680260208, guid: bcfff6fb01aac1f48aa13882ba531cee,
-    type: 2}
-  m_PrefabInternal: {fileID: 436328246}
-  m_GameObject: {fileID: 977205467}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
 --- !u!1 &1005242345
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelMusicChangeArray:
   - {fileID: 0}
-  - {fileID: 8300000, guid: a0a43280139a747788d54e650235b2c3, type: 3}
+  - {fileID: 8300000, guid: f83105d86634eda418ec7b9285ff10af, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: 5993e67dfc8b44c1998ac637d11cc5be, type: 3}
   - {fileID: 0}
@@ -564,7 +519,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.281
+  m_Volume: 0.153
   m_Pitch: 1
   Loop: 0
   Mute: 0

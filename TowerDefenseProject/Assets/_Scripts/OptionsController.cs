@@ -38,7 +38,7 @@ public class OptionsController : MonoBehaviour {
 	}
 
 	public void SetDefault(){
-		volumeSlider.value = 0.5f;
+		volumeSlider.value = 0.2f;
 		diffSlider.value = 1f;
 	}
 

@@ -23,6 +23,7 @@ public class MusicManager : MonoBehaviour {
 		if(thisLevelMusic){
 			audioSource.clip = thisLevelMusic;
 			audioSource.loop = true;
+            audioSource.volume = 0.1f;
 			audioSource.Play ();
 		}
 	}
