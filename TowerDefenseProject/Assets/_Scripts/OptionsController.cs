@@ -7,16 +7,23 @@ public class OptionsController : MonoBehaviour {
 	public Slider volumeSlider;
 	public Slider diffSlider;
 	public LevelManager levelManager;
+    public float speed;
 
-	private MusicManager musicManager;
+    private MusicManager musicManager;
     private bool optionPressed;
     private GameObject optionCanvas;
+    private GameObject startCanvas;
+    private GameObject world;
+    private bool worldLeft;
 
 	// Use this for initialization
 	void Start () {
 		musicManager = GameObject.FindObjectOfType<MusicManager> ();
         musicManager.ChangeVolume(PlayerPrefsManager.GetMasterVolume());
         optionCanvas = GameObject.Find("CanvasOptions");
+        startCanvas = GameObject.Find("CanvasStart");
+        world = GameObject.Find("World");
+        worldLeft = true;
         optionCanvas.SetActive(false);
     }
 	
@@ -25,6 +32,7 @@ public class OptionsController : MonoBehaviour {
 		PlayerPrefsManager.SetDifficulty (diffSlider.value);
         optionPressed = false;
         optionCanvas.SetActive(false);
+        startCanvas.SetActive(true);
 		// Close Options
 	}
 
@@ -34,6 +42,8 @@ public class OptionsController : MonoBehaviour {
         {
             musicManager.ChangeVolume (volumeSlider.value);
         }
+        moveBackgroundWorld();
+
 		
 	}
 
@@ -49,7 +59,30 @@ public class OptionsController : MonoBehaviour {
         Debug.Log(optionCanvas);
         optionPressed = true;
         optionCanvas.SetActive(true);
+        startCanvas.SetActive(false);
         volumeSlider.value = PlayerPrefsManager.GetMasterVolume();
         diffSlider.value = PlayerPrefsManager.GetDifficulty();
+    }
+
+    private void moveBackgroundWorld()
+    {
+        if (optionPressed)
+        {
+            // go right
+            if (world.transform.position.x >= 0.7f)
+            {
+                return;
+            }
+            world.transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+        } 
+        else
+        {
+            // go left
+            if (world.transform.position.x <= -0.6f)
+            {
+                return;
+            }
+            world.transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+        }
     }
 }
