@@ -67,7 +67,7 @@ public class OptionsController : MonoBehaviour {
         if (optionPressed)
         {
             // go right
-            if (world.transform.position.x >= 0.7f)
+            if (world.transform.position.x >= 90f)
             {
                 return;
             }
@@ -76,7 +76,7 @@ public class OptionsController : MonoBehaviour {
         else
         {
             // go left
-            if (world.transform.position.x <= -0.6f)
+            if (world.transform.position.x <= -70f)
             {
                 return;
             }
