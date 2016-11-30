@@ -8,12 +8,13 @@ public class OptionsController : MonoBehaviour {
 	public Slider diffSlider;
 	public LevelManager levelManager;
     public float speed;
+	public Animator schriftrollenAnimator;
+
 
     private MusicManager musicManager;
-    private bool optionPressed;
+	public static bool optionPressed;
     private GameObject optionCanvas;
     private GameObject startCanvas;
-    private GameObject world;
     private bool worldLeft;
 
 	// Use this for initialization
@@ -22,17 +23,19 @@ public class OptionsController : MonoBehaviour {
         musicManager.ChangeVolume(PlayerPrefsManager.GetMasterVolume());
         optionCanvas = GameObject.Find("CanvasOptions");
         startCanvas = GameObject.Find("CanvasStart");
-        world = GameObject.Find("World");
         worldLeft = true;
         optionCanvas.SetActive(false);
+		schriftrollenAnimator = GameObject.Find ("Schriftrolle").GetComponent<Animator> ();
     }
 	
  	public void BackAndSave(){
+		Debug.Log ("Save Options");
 		PlayerPrefsManager.SetMasterVolume (volumeSlider.value);
 		PlayerPrefsManager.SetDifficulty (diffSlider.value);
         optionPressed = false;
         optionCanvas.SetActive(false);
-        startCanvas.SetActive(true);
+		schriftrollenAnimator.SetTrigger ("Roll");
+
 		// Close Options
 	}
 
@@ -42,7 +45,6 @@ public class OptionsController : MonoBehaviour {
         {
             musicManager.ChangeVolume (volumeSlider.value);
         }
-        moveBackgroundWorld();
 	}
 
 	public void SetDefault(){
@@ -54,33 +56,13 @@ public class OptionsController : MonoBehaviour {
     {
         // Öffne Canvas
         Debug.Log("Open Options");
-        Debug.Log(optionCanvas);
         optionPressed = true;
-        optionCanvas.SetActive(true);
+        //optionCanvas.SetActive(true);
         startCanvas.SetActive(false);
         volumeSlider.value = PlayerPrefsManager.GetMasterVolume();
         diffSlider.value = PlayerPrefsManager.GetDifficulty();
+		schriftrollenAnimator.SetTrigger ("Roll");
     }
 
-    private void moveBackgroundWorld()
-    {
-        if (optionPressed)
-        {
-            // go right
-            if (world.transform.position.x >= 90f)
-            {
-                return;
-            }
-            world.transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
-        } 
-        else
-        {
-            // go left
-            if (world.transform.position.x <= -70f)
-            {
-                return;
-            }
-            world.transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
-        }
-    }
+
 }
