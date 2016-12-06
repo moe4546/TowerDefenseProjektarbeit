@@ -23,7 +23,6 @@ public class OptionsController : MonoBehaviour {
         musicManager.ChangeVolume(PlayerPrefsManager.GetMasterVolume());
         optionCanvas = GameObject.Find("CanvasOptions");
         startCanvas = GameObject.Find("CanvasStart");
-        worldLeft = true;
         optionCanvas.SetActive(false);
 		schriftrollenAnimator = GameObject.Find ("Schriftrolle").GetComponent<Animator> ();
     }
@@ -35,7 +34,6 @@ public class OptionsController : MonoBehaviour {
         optionPressed = false;
         optionCanvas.SetActive(false);
 		schriftrollenAnimator.SetTrigger ("Roll");
-
 		// Close Options
 	}
 
@@ -54,15 +52,11 @@ public class OptionsController : MonoBehaviour {
 
     public void OptionPress()
     {
-        // Öffne Canvas
         Debug.Log("Open Options");
         optionPressed = true;
-        //optionCanvas.SetActive(true);
         startCanvas.SetActive(false);
         volumeSlider.value = PlayerPrefsManager.GetMasterVolume();
         diffSlider.value = PlayerPrefsManager.GetDifficulty();
 		schriftrollenAnimator.SetTrigger ("Roll");
     }
-
-
 }
