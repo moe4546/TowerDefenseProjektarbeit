@@ -6,7 +6,7 @@ using Leap.Unity;
 public class Gestures : MonoBehaviour {
 
 	public GameObject menu;
-	public GameObject actualMenu;
+	private GameObject actualMenu;
 	private LeapServiceProvider provider;
 
 	void Start() {
@@ -25,6 +25,10 @@ public class Gestures : MonoBehaviour {
 		Destroy (actualMenu);
 	}
 
+	public void ExtendedFingers() {
+		Debug.Log ("Finger are extendend!");
+	}
+
 	void Update() {
 		Frame frame = provider.CurrentFrame;
 		foreach(Hand hand in frame.Hands) 
@@ -33,7 +37,7 @@ public class Gestures : MonoBehaviour {
 			{
 				//TODO: Dont hardcode this
 				actualMenu.transform.position = hand.PalmPosition.ToVector3 () + new Vector3(0, 0.1f, 0);
-				actualMenu.transform.rotation = hand.Basis.rotation.ToQuaternion();
+				//actualMenu.transform.rotation = hand.Basis.rotation.ToQuaternion();
 			}
 		}
 	}
