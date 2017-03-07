@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 	public float autoLoadNextLevelAfter;
+	private int highscore;
 
 	void Start(){
 		if(autoLoadNextLevelAfter != 0){
@@ -24,5 +25,15 @@ public class LevelManager : MonoBehaviour {
 
 	public void LoadNextLevel() {
 		Application.LoadLevel(Application.loadedLevel + 1);
+	}
+
+	public void SetHighscore(int score)
+	{
+		highscore = score;
+	}
+
+	public int GetHighscore()
+	{
+		return highscore;
 	}
 }

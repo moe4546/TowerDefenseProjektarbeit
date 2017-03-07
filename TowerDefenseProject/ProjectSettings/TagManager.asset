@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - selectedTower1
+  - Tower
+  - Island
+  - selectedTower2
+  - Node
+  - RightHand
+  - LeftHand
   layers:
   - Default
   - TransparentFX
@@ -14,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Buildable
   - 
   - 
   - 

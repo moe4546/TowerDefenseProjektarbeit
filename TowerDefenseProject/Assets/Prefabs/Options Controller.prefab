@@ -53,4 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 0}
   diffSlider: {fileID: 0}
-  levelManager: {fileID: 0}
+  levelManager: {fileID: 114000014132629430, guid: bcfff6fb01aac1f48aa13882ba531cee,
+    type: 2}
+  speed: 0.5
+  schriftrollenAnimator: {fileID: 0}

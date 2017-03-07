@@ -17,8 +17,7 @@ public class OptionsController : MonoBehaviour {
     private GameObject startCanvas;
     private bool worldLeft;
 
-	// Use this for initialization
-	void Start () {
+	void Awake () {
 		musicManager = GameObject.FindObjectOfType<MusicManager> ();
         musicManager.ChangeVolume(PlayerPrefsManager.GetMasterVolume());
         optionCanvas = GameObject.Find("CanvasOptions");

@@ -68,6 +68,8 @@ GameObject:
   - 33: {fileID: 33000010295676990}
   - 65: {fileID: 65000013298388880}
   - 23: {fileID: 23000010780595650}
+  - 120: {fileID: 120000011669161730}
+  - 114: {fileID: 114000013682066924}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -126,8 +128,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011876846548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.64, y: 1.12, z: 12.17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.2373671, y: 0.19317485, z: -0.276947}
+  m_LocalScale: {x: 0.035, y: 0.035, z: 0.035}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013839954246}
@@ -269,10 +271,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108784a9dc5b0d843b3e0a05d9f31161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  turnSpeed: 10
+  range: 0.2
+  turnSpeed: 4
   fireRate: 1
   partToRotate: {fileID: 4000013839954246}
   bulletPrefab: {fileID: 1000010542670092, guid: 7fc162eb8cfedaf4487ba947316d3e43,
     type: 2}
   firePoint: {fileID: 4000013641870594}
+--- !u!114 &114000013682066924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013429688254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d54cef2899a5647b753b5dd821006d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayRange: 50
+--- !u!120 &120000011669161730
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013429688254}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2860ab909b533de48a24182837b2de3e, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 0.005
+    endWidth: 0.005
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1

@@ -3,34 +3,59 @@ using System.Collections;
 
 public class Node : MonoBehaviour {
 
-	public Color hoverColor;
-	public Vector3 positionOffset;
+	public Vector3 positionOffsetTower1 = new Vector3(0f, 0.03f, 0f);
+	public Vector3 positionOffsetTower2 = new Vector3(-0.02f, 0.08f, 0f);
 
-	private GameObject turret;
-	private Renderer rend; 
-	private Color startColor;
+	private GameObject actualPlacedTurret;
+    private Shop shop;
 
-	void Start() {
-		rend = GetComponent<Renderer> ();
-		startColor = rend.material.color;
-	}
+    void Awake()
+    {
+        shop = GameObject.Find("GameMaster").GetComponent<Shop>();
+    }
 
-	void OnMouseDown() {
-		if(turret != null) {
-			Debug.Log ("Can't build there -TODO: Display on screen.");
+	public void BuildTurret(GameObject turret) {
+
+        if(!turret) {
+            return;
+        }
+
+		if(actualPlacedTurret) {
+			Debug.Log ("Can't build there");
 			return;
 		}
 
-		// Build a turret
-		GameObject turretToBuild = BuildManager.instance.getTurretToBuild();
-		turret = Instantiate (turretToBuild, transform.position + positionOffset, transform.rotation) as GameObject;
-	}
+		if(turret.tag == "selectedTower1")
+		{
+			if(shop.PurchaseTower1() == false)
+			{
+				Destroy(turret);
+				return;
+			}
+			turret.transform.position = transform.position + positionOffsetTower1;
+		} 
+		else if(turret.tag == "selectedTower2")
+		{
+			if(shop.PurchaseTower2() == false)
+			{
+				Destroy(turret);
+				return;
+			}
+			turret.transform.position = transform.position + positionOffsetTower2;
+		}
+			
+        turret.tag = "Tower";
 
-	void OnMouseEnter() {
-		rend.material.color = hoverColor;
-	}
+        // Build a turret
+        actualPlacedTurret = turret;
+        turret.GetComponent<LineRenderer>().enabled = false;
+        turret.GetComponent<Building>().enabled = false;
+        turret.transform.parent = transform;
+        turret.transform.rotation = transform.rotation;
+		turret.GetComponent<Turret> ().enabled = true;
+        transform.parent.GetComponent<AudioSource>().Play();
+        GameObject.Find("Scripts").GetComponent<Gestures>().actualTower = null;
+    }
 
-	void OnMouseExit() {
-		rend.material.color = startColor;
-	}
+	
 }

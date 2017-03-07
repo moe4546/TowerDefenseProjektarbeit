@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/Gestures.unity
+- path: Assets/_Scenes/DemoMap.unity
   isLoaded: 1
   isActive: 1

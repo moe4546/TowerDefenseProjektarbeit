@@ -3,12 +3,13 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-	private Transform target;
+	private GameObject target;
 	public float speed = 70f;
-	public GameObject impactEffect;
+	public float damage = 2f;
+	//public GameObject impactEffect;
 
 	public void SetTarget(Transform _target) {
-		target = _target;
+		target = _target.gameObject;
 	}
 
 	void Update () {
@@ -17,7 +18,7 @@ public class Bullet : MonoBehaviour {
 			return;
 		}
 
-		Vector3 dir = target.position - transform.position;
+		Vector3 dir = target.transform.position - transform.position;
 		float distanceThisFrame = speed * Time.deltaTime;
 
 		// Bullet hit target
@@ -29,10 +30,10 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void HitTarget() {
-		GameObject effIns = Instantiate (impactEffect, transform.position, transform.rotation) as GameObject;
-		Destroy (effIns, 2f);
+		//GameObject effIns = Instantiate (impactEffect, transform.position, transform.rotation) as GameObject;
+		//Destroy (effIns, 2f);
 
-		Destroy (target.gameObject);
+		target.GetComponent<Enemy> ().TakeDamage (damage);
 
 		Destroy (gameObject);
 	}
